@@ -19,10 +19,6 @@ public class TaskList {
         ui.add(String.format("Now you have %d tasks in the list.", this.list.size()));
     }
 
-    public void addTaskNormal(Task task) {
-        list.add(task);
-    }
-
     public void addTask(String task, String fullDescription, Ui ui) throws DukeCeption {
         try {
             switch (task) {
