@@ -11,6 +11,7 @@ public class Program {
     private Scanner userInputScanner;
     private Ui ui;
     private TaskList taskList;
+    private Parser parser;
     
 
     public Program() {
@@ -18,6 +19,7 @@ public class Program {
         this.userInputScanner = new Scanner(System.in);
         this.taskList = new TaskList();
         this.ui = new Ui();
+        this.parser = new Parser();
 
     }
 
@@ -26,9 +28,10 @@ public class Program {
         taskList.loadList(f, ui);
         ui.greeting(NAME);
         ui.print();
-        while (this.running) {
+
+        while (running) {
             String userInput = this.userInputScanner.nextLine();
-            this.readUserInput(userInput);
+            running = parser.readUserInput(userInput, taskList, ui);
         }
     }
 
